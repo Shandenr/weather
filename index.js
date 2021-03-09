@@ -35,6 +35,7 @@ app.post("/", function(req, res) {
             const weatherData = JSON.parse(data);
             const city = weatherData.name; 
             const temp = weatherData.main.temp;
+            const city = weatherData.city.id; 
             const humidity = weatherData.main.humidity;
             const windSpeed = weatherData.wind.speed;
             const cloudiness = weatherData.clouds.all
@@ -45,6 +46,7 @@ app.post("/", function(req, res) {
             // displays the output of the results
             res.write("<h1> The weather is " + weatherDescription + "<h1>");
             res.write("<h2>The Temperature in " + city + " is " + temp + " Degrees Fahrenheit<h2>");
+            res.write("<h2>The City id is " + city + "</h2>");
             res.write("<h2>The humidity is " + humidity + "%</h2>");
             res.write("<h2>The wind speed is " + windSpeed + "mph</h2>");
             res.write("<h2>The cloudiness is " + cloudiness + "%</h2>")
